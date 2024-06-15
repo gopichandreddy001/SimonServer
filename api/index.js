@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const authenticationRouter = require("./routes/authentication");
-const userRouter = require("./routes/userDetails");
-const verifyToken = require("./middleware/authMiddleware");
+const authenticationRouter = require("../routes/authentication");
+const userRouter = require("../routes/userDetails");
+const verifyToken = require("../middleware/authMiddleware");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 
 try {
   mongoose
