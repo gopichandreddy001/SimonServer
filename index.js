@@ -28,3 +28,5 @@ app.use("/users", verifyToken, userRouter);
 
 app.listen(8000);
 console.log("server started. Listening at port 8000");
+
+module.exports = app;
