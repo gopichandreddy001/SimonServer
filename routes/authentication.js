@@ -9,7 +9,6 @@ const User = require("../models/User");
 const UserDTO = require("../dto/UserDTO");
 
 router.post("/signup", async (req, res) => {
-  //console.log(req.body);
   try {
     User.findOne({ userId: req.body.userId })
       .exec()
