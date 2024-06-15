@@ -21,7 +21,7 @@ try {
 }
 
 let corsOptions = {
-  origin: ["https://simon-frontend.vercel.app/*"],
+  origin: ["https://simon-frontend.vercel.app/"],
 };
 
 app.use(cors(corsOptions));
