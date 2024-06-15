@@ -20,7 +20,11 @@ try {
   console.log(err.message);
 }
 
-app.use(cors());
+let corsOptions = {
+  origin: ["https://simon-frontend.vercel.app/*"],
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
