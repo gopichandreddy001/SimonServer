@@ -20,8 +20,24 @@ try {
   console.log(err.message);
 }
 
-let corsOptions = {
-  origin: ["https://simon-frontend.vercel.app"],
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    // Allow requests from localhost or 127.0.0.1, regardless of port
+    if (
+      origin.startsWith("http://localhost") ||
+      origin.startsWith("http://127.0.0.1") ||
+      origin.startsWith("https://simon-frontend.vercel.app")
+    ) {
+      return callback(null, true);
+    }
+
+    const msg =
+      "The CORS policy for this site does not allow access from the specified Origin.";
+    return callback(new Error(msg), false);
+  },
 };
 
 app.use(cors(corsOptions));
